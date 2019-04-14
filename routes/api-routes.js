@@ -1,8 +1,28 @@
 
+
 var db = require('../models');
 var passport = require('../config/passport');
 
 module.exports = function(app) {
+  
+  //GET route for all the potential matches
+    app.get("/api/allmatches", function(req, res) {
+        db.Users.findAll({}).then(function(results) {
+            res.json(results);
+        });
+    });
+
+    app.post("/api/newuser", function(req, res) {
+        console.log(req.body);
+        db.Users.create({
+            username: req.body.username,
+            picture: req.body.picture,
+            bio: req.body.bio,
+            answers: req.body.answers
+        });
+    });
+ 
+  
     // this authenticates the user login (this is for an existing user)
     app.post("/api/login", function(req, res) {
         const user = new User({
@@ -56,9 +76,4 @@ module.exports = function(app) {
 
 
 }
-
-
-
-
-
 
