@@ -1,0 +1,35 @@
+{
+  "name": "NerdLove",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scratch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yumikat/NerdLove.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yumikat/NerdLove/issues"
+  },
+  "homepage": "https://github.com/Yumikat/NerdLove#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "dotenv": "^7.0.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-session": "^1.16.1",
+    "fs": "0.0.1-security",
+    "mysql2": "^1.6.5",
+    "passport": "^0.4.0",
+    "passport-github2": "^0.1.11",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "sequelize": "^5.3.5"
+  }
+}
