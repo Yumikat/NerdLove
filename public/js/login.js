@@ -28,5 +28,13 @@ $(document).ready(function() {
         }).catch(function(err) {
             console.log(err);
         });
+        $.post("/api/register", {
+            email: email,
+            password: password
+        }).then(function(data) {
+            window.location.replace(data);
+        }).catch(function(err) {
+            console.log(err);
+        });
     }
 });
