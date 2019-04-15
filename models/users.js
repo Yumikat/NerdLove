@@ -15,6 +15,8 @@ module.exports = function(sequelize, DataTypes) {
 
     });
 
+
+
     // check to see if unhashed password can be compared to hashed password that is stored
     User.prototype.validPassword = function (password) {
         return bcrypt.compareSync(password, this.password);
