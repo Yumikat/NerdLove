@@ -19,20 +19,20 @@ module.exports = function (app) {
     });
 
     // ***this route contains the logic for matching***
-    apiRouter.post("/api/allmatches", function (req, res) {
+    app.post("/api/allmatches", function (req, res) {
         var newUser = req.body;
 
         //Loop through newUser scores and convert 
         //"1 (Strongly Disagree)" and "5 (Strongly Agree)" to 1 and 5 respectively
-        newUser.scores.forEach(function (score) {
-            if (score.scores == "1 (Strongly Disagree)") {
-                score.scores = 1;
+        newUser.answers.forEach(function (score) {
+            if (score.answers == "1 (Strongly Disagree)") {
+                score.answers = 1;
             }
-            else if (score.scores == "5 (Strongly Agree)") {
-                score.scores = 5;
+            else if (score.answers == "5 (Strongly Agree)") {
+                score.answers = 5;
             }
             else {
-                score.scores = parseInt(score.scores);
+                score.answers = parseInt(score.answers);
             }
         });//End for loop
 
