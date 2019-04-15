@@ -62,15 +62,7 @@ module.exports = function(app) {
         res.redirect("/");
     });
 
-    // this allows the user to see the matches page if they're authenticated and if not,
-    //    they are redirected to the login page -- this uses sessions and passport
-    app.get("/api/matches", function(req, res) {
-        if (req.isAuthenticated()) {
-            res.render("matches");
-        } else {
-            res.redirect("/login")
-        }
-    });
+
 
 }
 

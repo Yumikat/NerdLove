@@ -7,9 +7,10 @@ var db = require("../models");
 passport.use(new GitHubStrategy({
         clientID: process.env.GITHUB_CLIENT_ID,
         clientSecret: process.env.GITHUB_CLIENT_SECRET,
-        callbackURL: "http://localhost:3000/auth/github/callback"
+        callbackURL: "http://localhost:3000/auth/github/matches"
     },
     function(accessToken, refreshToken, profile, done) {
+        console.log(profile);
         db.User.findOrCreate({ githubId: profile.id }, function(err, user) {
             return done(err, user);
         });
