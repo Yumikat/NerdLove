@@ -1,4 +1,4 @@
-var passport = require('passport')
+var passport = require('passport');
 var GitHubStrategy = require("passport-local").Strategy;
 
 var db = require("../models");
