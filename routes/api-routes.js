@@ -1,12 +1,15 @@
 
-
 var db = require('../models');
 var passport = require('../config/passport');
 // gets User from ../models/users.js
 
-module.exports = function(app) {
 
-    //GET route for all the potential matches
+var db = require('../models');
+var passport = require('../config/passport');
+
+module.exports = function(app) {
+  
+  //GET route for all the potential matches
     app.get("/api/allmatches", function(req, res) {
         db.Users.findAll({}).then(function(results) {
             res.json(results);
@@ -74,6 +77,4 @@ module.exports = function(app) {
     });
 
 }
-
-
 
