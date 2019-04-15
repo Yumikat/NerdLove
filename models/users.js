@@ -3,15 +3,23 @@ const bcrypt = require('bcrypt-nodejs');
 
 module.exports = function(sequelize, DataTypes) {
     var User = sequelize.define("User", {
-
-        name: DataTypes.STRING,
-        userName: DataTypes.STRING,
-        picture: DataTypes.TEXT,
-        bio: DataTypes.TEXT,
-        gender: DataTypes.STRING,
-        age: DataTypes.INTEGER,
-        answers: DataTypes.STRING
+        // The email cannot be null, and must be a proper email before creation
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true,
+            validate: {
+                isEmail: true
+            }
+        },
+        // The password cannot be null
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }
     });
+
+
 
     // check to see if unhashed password can be compared to hashed password that is stored
     User.prototype.validPassword = function (password) {
@@ -26,7 +34,6 @@ module.exports = function(sequelize, DataTypes) {
     return User;
 
 }
-};
 
 
 
