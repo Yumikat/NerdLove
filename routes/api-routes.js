@@ -3,10 +3,6 @@ var db = require('../models');
 var passport = require('../config/passport');
 // gets User from ../models/users.js
 
-
-var db = require('../models');
-var passport = require('../config/passport');
-
 module.exports = function(app) {
   
   //GET route for all the potential matches
