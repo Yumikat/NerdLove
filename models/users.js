@@ -10,8 +10,12 @@ module.exports = function(sequelize, DataTypes) {
         bio: DataTypes.TEXT,
         gender: DataTypes.STRING,
         age: DataTypes.INTEGER,
-        answers: DataTypes.STRING
+        answers: DataTypes.STRING,
+        language:DataTypes.STRING
+
     });
+
+
 
     // check to see if unhashed password can be compared to hashed password that is stored
     User.prototype.validPassword = function (password) {
@@ -26,7 +30,6 @@ module.exports = function(sequelize, DataTypes) {
     return User;
 
 }
-
 
 
 
