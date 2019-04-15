@@ -15,6 +15,7 @@ $(document).ready(function() {
         }
         
         loginUser(userData.email, userData.password);
+        registerUser(userData.email, userData.password);
         emailInput.val("");
         passwordInput.val("");
     });
@@ -28,6 +29,9 @@ $(document).ready(function() {
         }).catch(function(err) {
             console.log(err);
         });
+    }
+
+    function registerUser(email, password) {
         $.post("/api/register", {
             email: email,
             password: password
@@ -38,19 +42,19 @@ $(document).ready(function() {
         });
     }
 
-    var answersChosen = [];
-
-    $("#submit").on("click", function() {
-        event.preventDefault();
-        for (var i = 1; i < 16; i++) {
-            var dropdownValue = $("#q"+[i]).value;
-            answersChosen.push(dropdownValue);
-        }
-        var newUser = {
-            answers: answersChosen
-        }
-        $.post("/api/allmatches", newUser).then(function(data) {
-            console.log(data);
-        });
-    });
+    // var answersChosen = [];
+    //
+    // $("#submit").on("click", function() {
+    //     event.preventDefault();
+    //     for (var i = 1; i < 16; i++) {
+    //         var dropdownValue = $("#q"+[i]).value;
+    //         answersChosen.push(dropdownValue);
+    //     }
+    //     var newUser = {
+    //         answers: answersChosen
+    //     }
+    //     $.post("/api/matches", newUser).then(function(data) {
+    //         console.log(data);
+    //     });
+    // });
 });

@@ -1,7 +1,32 @@
 var passport = require('passport');
-var GitHubStrategy = require("passport-local").Strategy;
+var GitHubStrategy = require('passport-github2').Strategy;
+var LocalStrategy = require('passport-local').Strategy;
 
 var db = require("../models");
+
+passport.use(new LocalStrategy(
+    {
+        usernameField: "email"
+    },
+    function(email, password, done) {
+        db.User.findOne({
+            where: {
+                email: email
+            }
+        }).then(function(dbUser) {
+            if (!dbUser) {
+                return done(null, false, {
+                    message: "incorrect email."
+                });
+            } else if (!dbUser.validPassword(password)) {
+                return done(null, false, {
+                    message: "incorrect password."
+                });
+            }
+            return done(null, dbUser);
+        });
+    }
+));
 
 
 passport.use(new GitHubStrategy({
