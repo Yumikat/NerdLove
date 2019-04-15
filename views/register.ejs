@@ -1,28 +1,59 @@
 <%- include('partials/header') %>
 
+<Header>
+    <img src="img/itcrowdhoriz.png" class="loginLogo" alt="it crowd logo vert">
+    <ul class="nav justify-content-end">
+        <li class="nav-item">
+            <a class="nav-link active" href="/api/home">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/api/login">Member Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/api/register">Not a member? </a>
+        </li>
+        <!-- <li class="nav-item">
+                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li> -->
+    </ul>
+
+</Header>
 <div class="container mt-5">
-    <h1>Register</h1>
-
-    <div class="row">
-        <div class="col-sm-8">
-            <div class="card">
-                <div class="card-body">
-
-                    <!-- Makes POST request to /register route -->
-                    <form action="/register" method="POST">
+    <body>
+        <div class="container-fluid bg">
+            <div class=row>
+                <div class="col-md-4 col- sm-4 col-xs-12"></div>
+                <div class="col-md-4 col- sm-4 col-xs-12">
+    
+                    <form class="form-container">
+                        <h4>Register</h4>
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control" name="username">
+                            <label for="exampleFormControlInput1">Name</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1"
+                                placeholder="">
                         </div>
                         <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" name="password">
+                            <label for="exampleFormControlInput1">Pick a Username</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1"
+                                placeholder="">
                         </div>
-                        <button type="submit" class="btn btn-dark">Register</button>
-                    </form>
-
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleFormControlFile1">Upload a Photo</label>
+                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                            </div>
+    
+    
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">All About You</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+    
+                        <button type="submit" id="loginSubmit" class="btn btn-primary btn-block">Register</button>
+                        </form>
                 </div>
             </div>
+        </div>
         </div>
 
         <div class="col-sm-4">
@@ -38,5 +69,11 @@
 
     </div>
 </div>
+    
+    
+        </form>
+    </body>
+
+        
 
 <%- include('partials/footer') %>
