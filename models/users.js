@@ -2,10 +2,13 @@
 const bcrypt = require('bcrypt-nodejs');
 module.exports = function(sequelize, DataTypes) {
     var User = sequelize.define("User", {
+
         name: DataTypes.STRING,
         userName: DataTypes.STRING,
-        picture: DataTypes.STRING,
+        picture: DataTypes.TEXT,
         bio: DataTypes.TEXT,
+        gender: DataTypes.STRING,
+        age: DataTypes.INTEGER,
         answers: DataTypes.STRING
     });
 
@@ -20,7 +23,10 @@ module.exports = function(sequelize, DataTypes) {
     });
 
     return User;
+
+}
 };
+
 
 
 
