@@ -37,4 +37,20 @@ $(document).ready(function() {
             console.log(err);
         });
     }
+
+    var answersChosen = [];
+
+    $("#submit").on("click", function() {
+        event.preventDefault();
+        for (var i = 1; i < 16; i++) {
+            var dropdownValue = $("#q"+[i]).value;
+            answersChosen.push(dropdownValue);
+        }
+        var newUser = {
+            answers: answersChosen
+        }
+        $.post("/api/allmatches", newUser).then(function(data) {
+            console.log(data);
+        });
+    });
 });
