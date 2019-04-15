@@ -2,7 +2,7 @@
 var db = require('../models');
 var passport = require('../config/passport');
 // the below gets our database of answers
-var usersData = require('../db')
+
 
 
 // gets User from ../models/users.js
