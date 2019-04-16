@@ -16,15 +16,17 @@ module.exports = function (app) {
 
     // ***this route contains the logic for matching***
     app.post("/api/matches", function (req, res) {
+
+        
         var newUser = req.body;
 
         //Loop through newUser scores and convert 
         //"1 (Strongly Disagree)" and "5 (Strongly Agree)" to 1 and 5 respectively
         newUser.answers.forEach(function (score) {
-            if (score.answers == "1 (Strongly Disagree)") {
+            if (score.answers === "1 (Strongly Disagree)") {
                 score.answers = 1;
             }
-            else if (score.answers == "5 (Strongly Agree)") {
+            else if (score.answers === "5 (Strongly Agree)") {
                 score.answers = 5;
             }
             else {
@@ -69,16 +71,11 @@ module.exports = function (app) {
         console.log(req.body);
         db.Profiles.create({
             name: req.body.name,
-            username: req.body.username,
             picture: req.body.picture,
             bio: req.body.bio,
-            gender: req.body.gender,
-            age: req.body.age,
-            answers: req.body.answers,
-            language: req.body.language
+            answers: req.body.answers
         });
     });
-
     // this authenticates the user login (this is for an existing user)
     app.post("/api/login", function (req, res) {
         const user = new User({
@@ -103,7 +100,7 @@ module.exports = function (app) {
         console.log(" -------------------- ");
         console.log(req.body);
         console.log(" -------------------- ");
-        db.User.create({ username: req.body.username }, req.body.password, function (err, user) {
+        db.User.create({ email: req.body.email }, req.body.password, function (err, user) {
             if (err) {
                 console.log(err);
                 res.redirect("/register");

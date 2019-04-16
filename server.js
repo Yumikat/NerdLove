@@ -18,7 +18,7 @@ app.use(express.static("public"));
 app.set('view engine', 'ejs');
 
 // this keeps track of the user's session
-app.use(session({ secret: "keyboard kittens", resave: true, saveUninitialized: true }));
+app.use(session({ secret: "keyboard kittens", resave: false, saveUninitialized: false }));
 app.use(passport.initialize());
 app.use(passport.session());
 
