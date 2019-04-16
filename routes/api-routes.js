@@ -21,10 +21,10 @@ module.exports = function (app) {
         //Loop through newUser scores and convert 
         //"1 (Strongly Disagree)" and "5 (Strongly Agree)" to 1 and 5 respectively
         newUser.answers.forEach(function (score) {
-            if (score.answers == "1 (Strongly Disagree)") {
+            if (score.answers === "1 (Strongly Disagree)") {
                 score.answers = 1;
             }
-            else if (score.answers == "5 (Strongly Agree)") {
+            else if (score.answers === "5 (Strongly Agree)") {
                 score.answers = 5;
             }
             else {
@@ -103,7 +103,7 @@ module.exports = function (app) {
         console.log(" -------------------- ");
         console.log(req.body);
         console.log(" -------------------- ");
-        db.User.create({ username: req.body.username }, req.body.password, function (err, user) {
+        db.User.create({ email: req.body.email }, req.body.password, function (err, user) {
             if (err) {
                 console.log(err);
                 res.redirect("/register");
