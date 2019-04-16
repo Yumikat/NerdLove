@@ -71,16 +71,11 @@ module.exports = function (app) {
         console.log(req.body);
         db.Profiles.create({
             name: req.body.name,
-            username: req.body.username,
             picture: req.body.picture,
             bio: req.body.bio,
-            gender: req.body.gender,
-            age: req.body.age,
-            answers: req.body.answers,
-            language: req.body.language
+            answers: req.body.answers
         });
     });
-
     // this authenticates the user login (this is for an existing user)
     app.post("/api/login", function (req, res) {
         const user = new User({
