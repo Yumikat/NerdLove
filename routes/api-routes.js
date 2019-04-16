@@ -5,6 +5,7 @@ var passport = require('../config/passport');
 
 
 module.exports = function (app) {
+    console.log("hit api routs");
 
     app.get("/matches", function(req, res) {
         if (req.isAuthenticated()) {
@@ -69,12 +70,21 @@ module.exports = function (app) {
     // setting up a profile for a new user
     app.post("/api/profile", function(req, res) {
         console.log(req.body);
-        db.Profiles.create({
-            name: req.body.name,
-            picture: req.body.picture,
-            bio: req.body.bio,
-            answers: req.body.answers
-        });
+        db.Profile.findAll({}).then(function(tutors){
+            res.json(tutors);
+            db.Profile.create({
+                name: req.body.name,
+                picture: req.body.picture,
+                bio: req.body.bio,
+                scores: req.body.scores
+            });
+        })
+        
+        // res.json({
+        //     matchName:matchName, 
+        //     matchImg: matchImg
+
+        // })
     });
     // this authenticates the user login (this is for an existing user)
     app.post("/api/login", function (req, res) {

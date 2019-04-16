@@ -18,15 +18,15 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
         },
         scores: {
-            type: DataTypes.JSON,
+            type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                isComplete(value) {
-                    if (value.length !== 10) {
-                        throw new Error('There is an answer missing!');
-                    }
-                }
-            }
+            // validate: {
+            //     isComplete(value) {
+            //         if (value.length !== 10) {
+            //             throw new Error('There is an answer missing!');
+            //         }
+            //     }
+            // }
         }
     });
     return Profile;
