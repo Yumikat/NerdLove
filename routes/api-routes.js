@@ -67,11 +67,15 @@ module.exports = function (app) {
     // setting up a profile for a new user
     app.post("/api/profile", function(req, res) {
         console.log(req.body);
-        db.Users.create({
+        db.Profiles.create({
+            name: req.body.name,
             username: req.body.username,
             picture: req.body.picture,
             bio: req.body.bio,
-            answers: req.body.answers
+            gender: req.body.gender,
+            age: req.body.age,
+            answers: req.body.answers,
+            language: req.body.language
         });
     });
 

@@ -1,0 +1,46 @@
+<%- include('partials/header') %>
+
+<form>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Name</label>
+        <input type="email" class="form-control" id="submitName" aria-describedby="nameHelp">
+
+    </div>
+
+    <h3>Gender Preference</h3>
+    <div class="btn-group btn-space">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Choose
+        </button>
+
+        <div class="dropdown-menu" class="chosen-select" id="q6">
+            <a class="dropdown-item" value="1">Male</a>
+            <a class="dropdown-item" value="2">Female</a>
+            <a class="dropdown-item" value="3">All of the Above!</a>
+
+        </div>
+    </div>
+    <h3>What's your favorite programming language?</h3>
+    <div class="btn-group btn-space">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Choose
+        </button>
+
+        <div class="dropdown-menu" class="chosen-select" id="q6">
+            <a class="dropdown-item" value="1">Javascript</a>
+            <a class="dropdown-item" value="2">Ruby/Rails</a>
+            <a class="dropdown-item" value="3">Python</a>
+            <a class="dropdown-item" value="4">C/C++</a>
+            <a class="dropdown-item" value="5">COBOL</a>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-lg btn-block" id="answerSubmit"><i class="fa fa-check-circle"
+            aria-hidden="true"></i>
+        Submit</button>
+</form>
+
+
+<%- include('partials/footer') %>
