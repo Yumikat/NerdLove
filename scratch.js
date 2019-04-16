@@ -1,5 +1,6 @@
 var questions = [
     "How much do you like sloths?",
+    "How many Elvish Rings of Power were there?",
     "How much do you like Star Wars?",
     "How many may comicons have you attended?",
     "Did you cosplay?",
@@ -12,8 +13,8 @@ var questions = [
     "Do you math?",
     "How much do you like coffee?",
     "How much do you like beer?",
-    "Do you like to game (board, RPGs, MMOs, Settlers, etc.)",
-    "How many Elvish Rings of Power were there?"
+    "Do you like to game (board, RPGs, MMOs, Settlers, etc.)"
+    
 ]
 
 
