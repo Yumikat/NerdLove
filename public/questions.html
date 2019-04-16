@@ -318,10 +318,10 @@
         if (validateForm()) {
             // Create an object for the user's data
             var userData = {
-                name: $("#name").val(),
-                picture: $("#picture").val(),
+                name: $("#userName").val(),
+                picture: $("#userPhoto").val(),
                 bio: $("#bio").val(),
-                answers: [
+                scores: [
                     $("#q1").val(),
                     $("#q2").val(),
                     $("#q3").val(),
@@ -339,10 +339,12 @@
                     $("#q15").val(),
                 ]
             }//End of userData
+            userData.scores=userData.scores.join("|");
+            console.log(userData);
 
             // AJAX post the data to the friends API.
-            $.post("https://cors-anywhere.herokuapp.com/" + "api/profiles", userData, function (data) {
-                console.log(userData);
+            $.post("/api/profile", userData, function (data) {
+                console.log(data);
                 // Grab the result from the AJAX post so that the best match's name and photo are displayed.
                 $("#matchName").text(data.name);
                 $('#matchImg').attr("src", data.picture);
