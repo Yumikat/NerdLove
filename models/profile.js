@@ -9,20 +9,20 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false,
             defaultValue: 'https://placem.at/things?w=250&random=some_seed',
-            validate: {
-                isUrl: true
-            }
+            // validate: {
+            //     isUrl: true
+            // }
         },
         bio: {
             type: DataTypes.TEXT,
             allowNull: false,
         },
         scores: {
-            type: DataTypes.STRING,
+            type: DataTypes.JSON,
             allowNull: false,
             // validate: {
             //     isComplete(value) {
-            //         if (value.length !== 10) {
+            //         if (value.length !== 15) {
             //             throw new Error('There is an answer missing!');
             //         }
             //     }
@@ -30,9 +30,25 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
     return Profile;
+}
 
-};
 
+// module.exports = function(sequelize, DataTypes) {
+
+//     var Profile = sequelize.define("Profile", {
+
+//         name: DataTypes.STRING,
+//         userName: DataTypes.STRING,
+//         picture: DataTypes.TEXT,
+//         bio: DataTypes.TEXT,
+//         gender: DataTypes.STRING,
+//         age: DataTypes.INTEGER,
+//         answers: DataTypes.STRING,
+//         languages: DataTypes.STRING
+
+//     });
+//     return Profile;
+// }
 
 
 

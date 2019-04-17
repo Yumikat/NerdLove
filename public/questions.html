@@ -285,7 +285,7 @@
 
     </div>
 </div>
-</body>
+<!-- </body> -->
 
 
 <script>
@@ -297,25 +297,25 @@
         event.preventDefault();
         // console.log(event)
         // Form validation
-        function validateForm() {
-            var isValid = true;
-            //Check to see if Name and Photo are filled
-            $(".form-control").each(function () {
-                if ($(this).val() === "") {
-                    isValid = false;
-                }
-            });
-            //Check to see if all answers are filled
-            $(".chosen-select").each(function () {
-                if ($(this).val() === "") {
-                    isValid = false;
-                }
-            });
-            return isValid;
-        }//End of validateForm()
+        // function validateForm() {
+        //     var isValid = true;
+        //     //Check to see if Name and Photo are filled
+        //     $(".form-control").each(function () {
+        //         if ($(this).val() === "") {
+        //             isValid = false;
+        //         }
+        //     });
+        //     //Check to see if all answers are filled
+        //     $(".chosen-select").each(function () {
+        //         if ($(this).val() === "15") {
+        //             isValid = false;
+        //         }
+        //     });
+        //     return isValid;
+        // }//End of validateForm()
 
         // If all required fields are filled
-        if (validateForm()) {
+        // if (validateForm()) {
             // Create an object for the user's data
             var userData = {
                 name: $("#userName").val(),
@@ -361,12 +361,12 @@
                     location.replace(res);
                 })
             });
-        } else {
-            $(".modal-title").text("Missing Required Information");
-            $(".modal-body").html("<h3>Please answer all questions to help finding your best tutor.</h3>");
-            $(".modal-footer").html("<h3><i class='fas fa-users'></i>Community of developers</h3>");
-            $("#resultsModal").modal('toggle');
-        }
+        // } else {
+        //     $(".modal-title").text("Missing Required Information");
+        //     $(".modal-body").html("<h3>Please answer all questions to help finding your best tutor.</h3>");
+        //     $(".modal-footer").html("<h3><i class='fas fa-users'></i>Community of developers</h3>");
+        //     $("#resultsModal").modal('toggle');
+        // }
     });
 </script>
 
