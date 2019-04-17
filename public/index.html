@@ -10,9 +10,10 @@
     <title>it crowd</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
@@ -28,18 +29,19 @@
 
     <section id="overall">
         <div class="container-fluid">
-            
+
             <nav class="navbar navbar-expland-lg">
-                    <a class="navbar-brand"><img src="img/itcrowdhoriz.png" class="loginLogo" alt="it crowd logo vert"></a>
-                    
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    
-                    
-                    
-                    </button>
-                    
-                </nav>
+                <a class="navbar-brand"><img src="img/itcrowdhoriz.png" class="loginLogo" alt="it crowd logo vert"></a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+
+
+
+                </button>
+
+            </nav>
             <div class="row wood">
 
 
@@ -51,7 +53,7 @@
                             <h1>Create Account</h1>
                             <input type="email" placeholder="Email" id="email_input" />
                             <input type="password" placeholder="Password" id="password_input" />
-                            <button>Sign Up</button>
+                            <button id="activeSignUp">Sign Up</button>
                         </form>
                     </div>
                     <div class="form-container sign-in-container">
@@ -60,7 +62,7 @@
                             <input type="email" placeholder="Email" id="email_input" />
                             <input type="password" placeholder="Password" id="password_input" />
                             <a href="#">Forgot your password?</a>
-                            <button>Sign In</button>
+                            <button id="activeSignIn">Sign In</button>
                         </form>
                     </div>
                     <div class="overlay-container">
@@ -92,7 +94,7 @@
     <br>
     <section>
         <footer class="footer" id="footer">
-                <span class="text-primary">Created by Alex, Nikki, Robby, Pidchaya, and Yulia with 🧠 and ♥️. </span>
+            <span class="text-primary">Created by Alex, Nikki, Robby, Pidchaya, and Yulia with 🧠 and ♥️. </span>
         </footer>
     </section>
 
@@ -101,32 +103,37 @@
             var loginForm = $("form.login");
             var emailInput = $("input#email_input");
             var passwordInput = $("input#password_input");
+            var userData = {};
 
-            loginForm.on("submit", function (event) {
+            $("#activeSignIn").on("click", function (event) {
                 event.preventDefault();
-                var userData = {
-                    email: emailInput.val().trim(),
-                    password: passwordInput.val().trim()
-                };
+                // userData = {
+                //     email: emailInput.val().trim(),
+                //     password: passwordInput.val().trim()
+                // };
+                // $.post("/api/login", userData).then(function(data) {
+                //     console.log(data);
+                // })
+                window.location.href="/questions";
             });
 
-            signUpForm.on("submit", function (event) {
+            $("body").on("click", "#activeSignUp", function (event) {
                 event.preventDefault();
-                var userData = {
-                    email: emailInput.val().trim(),
-                    password: passwordInput.val().trim()
-                };
+                // alert("hi");
+                // userData = {
+                //     email: emailInput.val().trim(),
+                //     password: passwordInput.val().trim()
+                // };
+                // if (!userData.email || !userData.password) {
+                //     return;
+                // }
+                // emailInput.val("");
+                // passwordInput.val("");
+                window.location.href="/questions";
             });
-
-            if (!userData.email || !userData.password) {
-                return;
-            }
 
             // If we have an email and password, run the signUpUser function
-            signUpUser(userData.email, userData.password);
-            emailInput.val("");
-            passwordInput.val("");
-
+            //signUpUser(userData.email, userData.password);
 
             function loginUser(email, password) {
                 $.post("/api/login", {
@@ -159,7 +166,6 @@
                 emailInput.val("");
                 passwordInput.val("");
 
-
                 signUpUser(userData.email, userData.password);
                 emailInput.val("");
                 passwordInput.val("");
@@ -167,7 +173,7 @@
 
 
         });
-       
+
 
         // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
         function loginUser(email, password) {
@@ -182,13 +188,6 @@
             });
         }
 
-
-
-
-
-
-
-
         const signUpButton = document.getElementById('signUp');
         const signInButton = document.getElementById('signIn');
         const container = document.getElementById('container');
@@ -201,30 +200,20 @@
             container.classList.remove('right-panel-active');
         });
 
-        signUpButton.on("submit", function () {
+        $("#activeSignUp").on("click", function () {
             var userData = {
                 email: emailInput.val().trim(),
                 password: passwordInput.val().trim()
             };
-
             if (!userData.email || !userData.password) {
                 return;
             }
-
             loginUser(userData.email, userData.password);
             emailInput.val("");
             passwordInput.val("");
         });
 
-
     </script>
-
-
-
-   
-
-
-
 </body>
 
 </html>

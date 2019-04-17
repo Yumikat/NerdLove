@@ -11,7 +11,7 @@ module.exports = function(app) {
         if (req.user) {
             res.redirect("/questions")
         }
-        res.sendFile(path.join(__dirname, "../public/index"));
+        res.sendFile(path.join(__dirname, "../public/index.html"));
     });
 
     app.get("/questions", function(req, res) {

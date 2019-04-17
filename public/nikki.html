@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>IT Crowd</title>
+    <meta charset="UTF-8">
+    <!--viewport added-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>it crowd</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap-social.css"> -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<section id="overall">
+    <div class="container-fluid">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <img src="img/itcrowdhoriz.png">
+                </div>
+            </div>
+        </nav>
+        <div class="row wood">
+            <div class="container" id="container">
+                <div class="form-container sign-up-container">
+                    <form class="signup">
+                        <h1>Create Account</h1>
+                        <input type="email" placeholder="Email" id="email_inputNew" />
+                        <input type="password" placeholder="Password" id="password_inputNew" />
+                        <button class="signUpButton">Sign Up</button>
+                    </form>
+                </div>
+                <div class="form-container sign-in-container">
+                    <form class="login">
+                        <h1>Sign In</h1>
+                        <input type="email" placeholder="Email" id="email_input" />
+                        <input type="password" placeholder="Password" id="password_input" />
+                        <a href="#">Forgot your password?</a>
+                        <button class="signInButton">Sign In</button>
+                    </form>
+                </div>
+                <div class="overlay-container">
+                    <div class="overlay">
+                        <div class="overlay-panel overlay-left">
+                            <h1>Welcome Back!</h1>
+                            <p>
+                                To keep connected with us please login with your personal info
+                            </p>
+                            <button class="ghost" id="signIn">Sign In</button>
+                        </div>
+                        <div class="overlay-panel overlay-right">
+                            <h1>Hello, Friend!</h1>
+                            <p>Enter your details and start your journey with us</p>
+                            <button class="ghost" id="signUp">Sign Up</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div id="resultsModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h2 class="modal-title">
+                    <strong>Your tutor match has arrived!</strong>
+                </h2>
+            </div>
+            <div class="modal-body">
+                <h3 id="matchName"></h3>
+                <img id="matchPhoto" src="" alt="" style="max-width: 350px;" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-defaul" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<footer class="footer mt-5" id="footer">
+    <span class="text-primary">Created by Alex, Nikki, Robby, Pidchaya, and Yulia with 🧠 and 🧡. </span>
+</footer>
+<script>
+    $(document).ready(function () {
+        var loginForm = $("form.login");
+        var emailInputNew = $("input#email_inputNew");
+        var passwordInputNew = $("input#password_inputNew");
+        var emailInput = $("input#email_input");
+        var passwordInput = $("input#password_input");
+        const signUpButton = $('.signUp');
+        const signInButton = $('.signIn');
+        const container = document.getElementById('container');
+        signUpButton.on('click', () => {
+            container.addClass('right-panel-active');
+        });
+        signInButton.on('click', () => {
+            container.addClass('right-panel-active');
+        });
+        loginForm.on("submit", function (event) {
+            event.preventDefault();
+            var userData = {
+                email: emailInput.val().trim(),
+                password: passwordInput.val().trim()
+            };
+        });
+        signUpButton.on("submit", function () {
+            var userData = {
+                email: emailInputNew.val().trim(),
+                password: passwordInputNew.val().trim()
+            };
+            if (!userData.email || !userData.password) {
+                return;
+            }
+            loginUser(userData.email, userData.password);
+            emailInput.val("");
+            passwordInput.val("");
+        });
+        signInButton.on("submit", function (event) {
+            event.preventDefault();
+            var userData = {
+                email: emailInput.val().trim(),
+                password: passwordInput.val().trim()
+            };
+            // If we have an email and password, run the signUpUser function
+            signUpUser(userData.email, userData.password);
+            emailInput.val("");
+            passwordInput.val("");
+        });
+        function loginUser(email, password) {
+            $.post("/api/login", {
+                email: email,
+                password: password
+            }).then(function (data) {
+                window.location.replace(data);
+                // If there's an error, log the error
+            }).catch(function (err) {
+                console.log(err);
+            });
+        }
+        function signUpUser(email, password) {
+            $.post("/api/signup", {
+                email: email,
+                password: password
+            }).then(function (data) {
+                window.location.replace(data);
+                // If there's an error, handle it by throwing up a bootstrap alert
+            }).catch(handleLoginErr);
+            if (!userData.email || !userData.password) {
+                return;
+            }
+            // If we have an email and password we run the loginUser function and clear the form
+            // signUpUser(userData.email, userData.password);
+            emailInput.val("");
+            passwordInput.val("");
+        };
+    });
+    // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
+    function loginUser(email, password) {
+        $.post("/api/login", {
+            email: email,
+            password: password
+        }).then(function (data) {
+            window.location.replace(data);
+            // If there's an error, log the error
+        }).catch(function (err) {
+            console.log(err);
+        });
+    }
+</script>
+</body>
+</html>
