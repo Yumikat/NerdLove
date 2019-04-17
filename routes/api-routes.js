@@ -10,9 +10,68 @@ module.exports = function (app) {
         res.json("/test");
     });
 
+
+        app.post("/api/questions", function(req, res) {
+            var newProfile = req.body;
+            var newProfileAnswers = req.body.answers;
+            var userData = db.Profile.findAll();
+
+
+
+            var matchName = "";
+            var matchPhoto = "";
+            var matchBio = "";
+            var totalDiff = 10000;
+            for (let i = 0; i < userData.length; i++) {
+                var currentCompare = 0;
+                for (let j = 0; j < newProfileAnswers.length; j++) {
+                    console.log(userData[i].answers);
+                    // compare new score index with each existing score of same index
+                    currentCompare += Math.abs(newProfile.answers[j] - userData[i].answers[j]);
+                }
+                // winner is the position of the lowest score difference
+                if (currentCompare < totalDiff) {
+                    totalDiff = currentCompare;
+                    matchName = userData[i].name;
+                    matchPhoto = userData[i].picture;
+                    matchBio = userData[i].bio
+                }
+            }
+
+            // put new friend into data storage -- do this at the end so you're not comparing you to yourself.
+            userData.push(newProfile);
+
+            res.json({
+                status: 'OK',
+                matchName: matchName,
+                matchPhoto: matchPhoto,
+                matchBio: matchBio
+            });
+        });
+
+
+
     app.post("/api/signup", function(req, res) {
         console.log(req.body);
-        db.User.create({
+        db.Profile.findAll({}).then(function(tutors){
+            res.json(tutors);
+            db.Profile.create({
+                name: req.body.name,
+                picture: req.body.picture,
+                bio: req.body.bio,
+                scores: req.body.scores
+            });
+        })
+        
+        // res.json({
+        //     matchName:matchName, 
+        //     matchImg: matchImg
+
+        // })
+    });
+    // this authenticates the user login (this is for an existing user)
+    app.post("/api/login", function (req, res) {
+        const user = new User({
             email: req.body.email,
             password: req.body.password
         }).then(function() {
@@ -63,42 +122,6 @@ module.exports = function (app) {
 
 
 
-// app.post("/api/questions", function(req, res) {
-//     var newProfile = req.body;
-//     var newProfileAnswers = req.body.answers;
-//     var userData = db.Profile.findAll();
-//
-//
-//
-//     var matchName = "";
-//     var matchPhoto = "";
-//     var matchBio = "";
-//     var totalDiff = 10000;
-//     for (let i = 0; i < userData.length; i++) {
-//         var currentCompare = 0;
-//         for (let j = 0; j < newProfileAnswers.length; j++) {
-//             console.log(userData[i].answers);
-//             // compare new score index with each existing score of same index
-//             currentCompare += Math.abs(newProfile.answers[j] - userData[i].answers[j]);
-//         }
-//         // winner is the position of the lowest score difference
-//         if (currentCompare < totalDiff) {
-//             totalDiff = currentCompare;
-//             matchName = userData[i].name;
-//             matchPhoto = userData[i].picture;
-//             matchBio = userData[i].bio
-//         }
-//     }
-//
-//     // put new friend into data storage -- do this at the end so you're not comparing you to yourself.
-//     userData.push(newProfile);
-//
-//     res.json({
-//         status: 'OK',
-//         matchName: matchName,
-//         matchPhoto: matchPhoto,
-//         matchBio: matchBio
-//     });
-// });
+
 
 

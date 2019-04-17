@@ -17,20 +17,22 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.TEXT,
             allowNull: false,
         },
-        answers: {
+        scores: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                isComplete(value) {
-                    if (value.length !== 10) {
-                        throw new Error('There is an answer missing!');
-                    }
-                }
-            }
+            // validate: {
+            //     isComplete(value) {
+            //         if (value.length !== 10) {
+            //             throw new Error('There is an answer missing!');
+            //         }
+            //     }
+            // }
         }
     });
     return Profile;
+
 };
+
 
 
 

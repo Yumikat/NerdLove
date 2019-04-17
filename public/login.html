@@ -43,3 +43,147 @@
 </body>
 
 </html>
+=======
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>IT Crowd</title>
+    <meta charset="UTF-8">
+    <!--viewport added-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>it crowd</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap-social.css"> -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+
+<div>
+    <img src="img/itcrowdhoriz.png" class="loginLogo"alt="it crowd logo vert">
+   
+   <ul class="nav justify-content-end">
+           <li class="nav-item">
+             <a class="nav-link active" href="index.html">Home</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="#">Member Login</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="register.html">Not a member? </a>
+           </li>
+           <!-- <li class="nav-item">
+             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+           </li> -->
+         </ul>
+   </div>
+   
+       <div class="container-fluid bg" >
+           <div class=row>
+           <div class="col-md-4 col- sm-4 col-xs-12"></div>
+           <div class="col-md-4 col- sm-4 col-xs-12">
+   
+   
+               <form class="form-container">
+                       <h1>Member Login</h1>
+                   <div class="form-group">
+   
+                       <label for="Username">Username</label>
+                       <input type="email" class="form-control" id="loginUsername" aria-describedby="emailHelp"
+                           placeholder="">
+   <div class="container mt-5">
+       <h1>Login</h1>
+       <input type="email" class="form-control" id="loginUsername" aria-describedby="emailHelp"
+                           placeholder="">
+   
+       <div class="row">
+           <div class="col-sm-8">
+               <div class="card">
+                   <div class="card-body">
+
+                        <button type="submit" id="loginSubmit" class="btn btn-primary btn-block">Submit</button> 
+   
+                       <!-- Makes POST request to /login route
+                       <form action="/api/login" method="POST" class="login">
+                           <div class="form-group">
+                               <label for="email">Email</label>
+                               <input type="email" class="form-control" name="username" id="emailInput">
+                           </div>
+                           <div class="form-group">
+                               <label for="password">Password</label>
+                               <input type="password" class="form-control" name="password" id="passwordInput">
+                           </div>
+                           <button type="submit" class="btn btn-dark">Login</button>
+                       </form>
+   
+                   </div>
+                   <div class="form-group">
+                       <label for="Password1">Password</label>
+                       <input type="password" class="form-control" id="loginPassword" placeholder="">
+                   </div>
+                   <div class="form-group form-check">
+                       <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                       <label class="form-check-label" font color="black" for="exampleCheck1">Remember Me</label>
+                   </div>
+                   <button type="submit" id="loginSubmit" class="btn btn-primary btn-block">Submit</button> -->
+   
+                   <!-- <div class="col-sm-4">
+                       <div class="card">
+                           <div class="card-body">
+                               <a class="btn btn-block btn-social btn-github" href="/auth/github" role="button">
+                                   <i class="fab fa-github"></i>
+                                   Sign In with GitHub
+                               </a>
+                           </div>
+                       </div>
+                   </div>
+           
+               </div>
+           </div> -->
+   
+               </form>
+           </div>
+       </div>
+       </div>
+       <br> <br>
+
+       <footer class="footer mt-5" id="footer">
+        <div class="container">
+            <span class="text-primary">Created by Alex, Nikki, Robby, Pidchaya, and Yulia with 🧠 and ♥️. </span>
+        </div>
+    </footer>
+    
+    <script>
+    
+        $(document).ready(function() {
+            // This file just does a GET request to figure out which user is logged in
+            // and updates the HTML on the page
+            $.get("/api/user_data").then(function(data) {
+                $(".member-name").text(data.email);
+            });
+        });
+    
+    </script>
+    
+    
+    <script type="text/javascript" src="../../public/js/logic.js"></script>
+    
+    
+    
+    </body>
+    </html>
+
