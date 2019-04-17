@@ -1,54 +1,54 @@
 
 // need app.get routes for "/", "/login", and "/members"
 
-var path = require('path');
-var passport = require('passport');
+var path = require("path");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 
 module.exports = function(app) {
 
     app.get("/", function(req, res) {
-        res.render("home");
-    })
-
-    app.get("/api/register", function(req, res) {
-        res.render("register");
-    })
-
-    app.get("/api/login", function(req, res) {
-        res.render("login");
-    })
-
-    // this authenticates with github login and uses their profile
-    app.get("/auth/github",
-        passport.authenticate('github', { scope: ["user:email"] }));
-
-    // this sends back to home if login with github fails.
-    app.get("/auth/github/matches",
-        passport.authenticate("github", { failureRedirect: "/login" }),
-        function(req, res) {
-            res.redirect("/matches");
-        });
-
-
-
-    app.get("/profile", function(req, res) {
-        if (req.isAuthenticated()) {
-            res.render("profile");
-        } else {
-            res.redirect("/login")
+        if (req.user) {
+            res.redirect("/members")
         }
+        res.sendFile(path.join(__dirname, "../public/login.html"));
     });
 
-    app.post("/profile", function(req, res) {
-
-    })
-
-
-    //default profile page (after logging in and/or registering)
-    app.get("/profile", function (req, res) {
-        res.sendFile(path.join(__dirname, "../public/profile.html"));
+    app.get("/login", function(req, res) {
+        if (req.user) {
+            res.redirect("/members");
+        }
+        res.sendFile(path.join(__dirname, "../public/members.html"))
     });
 
-}
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

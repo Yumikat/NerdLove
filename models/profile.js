@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         },
-        photo: {
+        picture: {
             type: DataTypes.STRING,
             allowNull: false,
             defaultValue: 'https://placem.at/things?w=250&random=some_seed',
@@ -17,8 +17,8 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.TEXT,
             allowNull: false,
         },
-        scores: {
-            type: DataTypes.JSON,
+        answers: {
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 isComplete(value) {
@@ -30,4 +30,7 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
     return Profile;
-}
+};
+
+
+
