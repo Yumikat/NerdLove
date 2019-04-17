@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         },
-        photo: {
+        picture: {
             type: DataTypes.STRING,
             allowNull: false,
             defaultValue: 'https://placem.at/things?w=250&random=some_seed',
@@ -30,22 +30,9 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
     return Profile;
-}
+
+};
 
 
-// module.exports = function(sequelize, DataTypes) {
 
-//     var Profile = sequelize.define("Profile", {
 
-//         name: DataTypes.STRING,
-//         userName: DataTypes.STRING,
-//         picture: DataTypes.TEXT,
-//         bio: DataTypes.TEXT,
-//         gender: DataTypes.STRING,
-//         age: DataTypes.INTEGER,
-//         answers: DataTypes.STRING,
-//         languages: DataTypes.STRING
-
-//     });
-//     return Profile;
-// }

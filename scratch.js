@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+<script>
+=======
 var questions = [
     "How much do you like sloths?",
     "How many Elvish Rings of Power were there?",
@@ -16,7 +19,25 @@ var questions = [
     "Do you like to game (board, RPGs, MMOs, Settlers, etc.)"
     
 ]
+>>>>>>> master
 
+<Header>
+<img src="img/itcrowdhoriz.png" class="loginLogo" alt="it crowd logo vert">
+    <ul class="nav justify-content-end">
+    <li class="nav-item">
+    <a class="nav-link active" href="#">Home</option>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="#">Member Login</option>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="#">Not a member? </option>
+</li>
+<!-- <li class="nav-item">
+    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</option>
+    </li> -->
+    </ul>
 
-// logo colors
-// #52A7F9 (light blue), #DCDEE0 (grey), #0465C0 (darker blue)
+    </Header>
+
+    <script>
