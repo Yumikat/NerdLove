@@ -1,7 +1,12 @@
 /* *{color: #fff} */
 .bg {background: url("../img/desk-1220052_1280.jpg") no-repeat;
-    width: 100%;
-    height: 100vh;
+    position: relative; 
+  top: 5; 
+  left: 0; 
+	
+  /* Preserve aspet ratio */
+  min-width: 100%;
+  min-height: 60%;
 
 }
 
