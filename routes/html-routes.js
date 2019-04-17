@@ -11,8 +11,12 @@ module.exports = function(app) {
         res.render("home");
     })
 
-    app.get("/api/register", function(req, res) {
+    app.get("/register", function(req, res) {
         res.render("register");
+    })
+
+    app.get("/submit", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public/questions.html"));
     })
 
     app.get("/api/login", function(req, res) {
