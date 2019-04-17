@@ -1,4 +1,3 @@
-
 var db = require('../models');
 var passport = require('../config/passport');
 // the below gets our database of answers
@@ -29,6 +28,7 @@ module.exports = function (app) {
             res.json(results);
         });
     });
+
 
         // db.Profile.findAll().then(function (results) {
         //     var matchName = "";
@@ -62,9 +62,6 @@ module.exports = function (app) {
         //     });
         // })
 
-
-
-
     // });
 
 
@@ -82,7 +79,7 @@ module.exports = function (app) {
         })
 
         // res.json({
-        //     matchName:matchName, 
+        //     matchName:matchName,
         //     matchImg: matchImg
 
         // })
