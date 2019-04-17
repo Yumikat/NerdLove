@@ -9,14 +9,18 @@ module.exports = function(app) {
 
     app.get("/", function(req, res) {
         if (req.user) {
-            res.redirect("/members")
+            res.redirect("/questions")
         }
-        res.sendFile(path.join(__dirname, "../public/login.html"));
+        res.sendFile(path.join(__dirname, "../public/index"));
     });
 
+    app.get("/questions", function(req, res) {
+        
+        res.sendFile(path.join(__dirname, "../public/questions.html"));
+    });
     app.get("/login", function(req, res) {
         if (req.user) {
-            res.redirect("/members");
+            res.redirect("/questions");
         }
         res.sendFile(path.join(__dirname, "../public/members.html"))
     });
