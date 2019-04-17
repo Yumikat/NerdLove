@@ -19,45 +19,27 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
-    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/bootstrap-social.css"> -->
+    
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body>
 
-        <section id="title">
+<body background="./img/desk-1220052_1280.jpg">
+    
                 <div class="container-fluid">
                     <nav class="navbar navbar-expland-lg">
                         <a class="navbar-brand" href="index.html"><img src="img/itcrowdhoriz.png" class="loginLogo" alt="it crowd logo vert"></a>
-                        <!-- <div class="collapse navbar-collapse" id="navbarNav">
-                            <ul class="navbar-nav ml-auto">
-                                <li class="nav-item">
-                                    <a class="nav-link active" href="#">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Member Login</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Not a member? </a>
-                                </li>
-                    </ul>
-                    </div> -->
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        
-                        
-                        
-                        </button>
-                        
-                    </nav>
+                   
+                    </nav>   
+                </div>    
+  
+  
 
-                    <div class="row">
-                        <div class="col-lg-6">
+    <div class = "container" id="wood">             
                             <h1 class="big-heading">Let's get a tutor.</h1>
                             <br>
-                            <form class="form-group">
+                    
+                            <div class="form-group">
                                 <h4>What's your name? (required)</h4>
                                 <input id="userName" type="text" name="userName" class="form-control" required>
                                 <br>
@@ -66,25 +48,9 @@
                                 <h4>Write a short bio about yourself</h4>
                                 <input id="bio" type="text" name="userBio" class="form-control" required>
                                 <br>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                
-                
-        </section>
-
-
-    <div class="container-fluid ">
-        <div class=row>
-            <div class="col-md-8 col- sm-4 col-xs-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Welcome!!!!!  Let's get you a tutor!</h3>
-                    </div>
-                <div class="card-body">
-                    <form class="form-group" name="form" action="/survey" method="post">
-                        <h3>1.In which computer language you need tutoring help the most? Select one from the menu.</h3>
+                            </div>
+                    
+                        <h4>1.In which computer language you need tutoring help the most?</h4>
                             <select class="chosen-select" name="q1" id="q1">
                                 <option value="1">1 (SQL)</option>
                                 <option value="2">2 (Java)</option>
@@ -99,7 +65,7 @@
                             </select>
                         <br>
         
-                    <h3>2.In which language are you proficient and can share your knowledge with others? Select one from the menu.</h3>
+                    <h4>2.In which language are you proficient and can share your knowledge with others?</h4>
                         <select class="chosen-select" name="q2" id="q2">
                             <option value="1">1 (SQL)</option>
                             <option value="2">2 (Java)</option>
@@ -114,7 +80,7 @@
                         </select>
                         <br>
                         
-                    <h3>3. How much do you like Star Wars?</h3>
+                    <h4>3. How much do you like Star Wars?</h4>
                         <select class="chosen-select" id="q3">
                             <option value="1">1 (Star Wars is Kiddy BS.)</option>
                             <option value="2">2</option>
@@ -124,7 +90,7 @@
                         </select>
                         <br>
         
-                    <h3>4. How many may comicons have you attended?</h3>
+                    <h4>4. How many may comicons have you attended?</h4>
                         <select class="chosen-select" id="q4">
                             <option value="1">1 (What's a comicon?)</option>
                             <option value="2">2</option>
@@ -134,7 +100,7 @@
                         </select>
                         <br>
                         
-                    <h3>5. Do you cosplay?</h3>
+                    <h4>5. Do you cosplay?</h4>
                         <select class="chosen-select" id="q5">
                             <option value="1">1 (Costumes are for children.)</option>
                             <option value="2">2</option>
@@ -144,7 +110,7 @@
                         </select>
                         <br>
 
-                <h3>6. How awkward are you in social situations??</h3>
+                <h4>6. How awkward are you in social situations??</h4>
               
 
                     <select class="chosen-select" id="q6">
@@ -157,7 +123,7 @@
                 <br>
 
 
-                <h3>7. How quickly can you set up a functional website from scratch?</h3>
+                <h4>7. How quickly can you set up a functional website from scratch?</h4>
                
 
                     <select class="chosen-select" id="q7">
@@ -169,7 +135,7 @@
                         </select>
                 <br>
 
-                <h3>8. Do you like the show "Firefly?"</h3>
+                <h4>8. Do you like the show "Firefly?"</h4>
             
 
                     <select class="chosen-select" id="q8">
@@ -181,7 +147,7 @@
                         </select>
                 <br>
 
-                <h3>9. How do you feel about Joss Whedon?</h3>
+                <h4>9. How do you feel about Joss Whedon?</h4>
                
 
                     <select class="chosen-select" id="q9">
@@ -193,7 +159,7 @@
                         </select>
                 <br>
 
-                <h3>10. How many times have you applied to Google?</h3>
+                <h4>10. How many times have you applied to Google?</h4>
               
                   <select class="chosen-select" id="q10">
                         <option value="1">1 (Maybe I'll apply. Someday...)</option>
@@ -204,7 +170,7 @@
                     </select>
                 <br>
 
-                <h3>11. How do you feel about whiteboarding?</h3>
+                <h4>11. How do you feel about whiteboarding?</h4>
          
 
                     <select class="chosen-select" id="q11">
@@ -217,7 +183,7 @@
                         </select>
                 <br>
 
-                <h3>12. Do you math?</h3>
+                <h4>12. Do you math?</h4>
 
                     <select class="chosen-select" id="q12">
                         <option value="1">1 (Nope.)</option>
@@ -228,7 +194,7 @@
                         </select>
                 <br>
 
-                <h3>13. How much do you like coffee?</h3>
+                <h4>13. How much do you like coffee?</h4>
                
                     <select class="chosen-select" id="q13">
                         <option value="1">1 (I'm more of a tea person...)</option>
@@ -239,7 +205,7 @@
                         </select>
                 <br>
 
-                <h3>14. How much do you like beer?</h3>
+                <h4>14. How much do you like beer?</h4>
                 
 
                     <select class="chosen-select" id="q14">
@@ -251,7 +217,7 @@
                         </select>
                 <br>
 
-                <h3>15. Do you like to game (board, RPGs, MMOs, Settlers, D&D, etc)?</h3>
+                <h4>15. Do you like to game (board, RPGs, MMOs, Settlers, D&D, etc)?</h4>
                 
 
                     <select class="chosen-select" id="q15">
@@ -263,17 +229,18 @@
                         </select>
                 <br>
 
-                    </form>        
+                       
+                <br>    
                 <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i>
                     Submit</button>
                 <br>
-
-              
-
-            </div>
-            </div>
+            
+              <br>
+              <br>
+            
+        
         </div>
-    </div>
+    <!-- </div> -->
 
 <!-- Modal -->
 <div id="resultsModal" class="modal fade" role="dialog">
@@ -362,7 +329,7 @@
                 // clear the input fields in the form
                 $("#name").val("");
                 $("#picture").val("");
-                $(".modal-footer").html("<h3><i class='fas fa-users'></i>Community of developers</h3>");
+                $(".modal-footer").html("<h4><i class='fas fa-users'></i>Community of developers</h4>");
             });
             //Close modal and go to home page
             $('#closeModal').click(function () {
@@ -372,8 +339,8 @@
             });
         // } else {
         //     $(".modal-title").text("Missing Required Information");
-        //     $(".modal-body").html("<h3>Please answer all questions to help finding your best tutor.</h3>");
-        //     $(".modal-footer").html("<h3><i class='fas fa-users'></i>Community of developers</h3>");
+        //     $(".modal-body").html("<h4>Please answer all questions to help finding your best tutor.</h4>");
+        //     $(".modal-footer").html("<h4><i class='fas fa-users'></i>Community of developers</h4>");
         //     $("#resultsModal").modal('toggle');
         // }
     });
